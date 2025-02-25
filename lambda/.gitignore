@@ -1,0 +1,9 @@
+# Ignore virtual environments, logs, and deployment packages
+venv/
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+logs/
+lambda_function.zip
+lambda_package/

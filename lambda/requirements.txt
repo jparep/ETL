@@ -1,0 +1,4 @@
+# lambda/requirements.txt - Minimal dependencies for Lambda function
+boto3==1.36.25  # AWS SDK for S3 and Secrets Manager
+pandas==2.2.3   # Data manipulation and analysis
+snowflake-connector-python==3.13.2  # Snowflake database connector
