@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_employees
+    description: "Staging view for cleaned and normalized employee data"
+    columns:
+      - name: first
+        description: "Employee's first name"
+      - name: last
+        description: "Employee's last name"
+      - name: age
+        description: "Employee's age"
+      - name: sex
+        description: "Employee's gender (M/F/Unknown)"
+      - name: age_group
+        description: "Age group categorization (Under 25, 25-35, etc.)"
+      - name: load_time
+        description: "Timestamp when the record was loaded"
+
+  - name: employees
+    description: "Aggregated and transformed employee data for analytics"
+    columns:
+      - name: age_group
+        description: "Age group categorization"
+      - name: sex
+        description: "Employee's gender (M/F/Unknown)"
+      - name: employee_count
+        description: "Number of employees in the group"
+      - name: avg_age
+        description: "Average age in the group"
+      - name: last_updated
+        description: "Most recent load timestamp"
+
+tests:
+  - name: assert_no_invalid_sex
+    description: "Ensure no invalid sex values exist"
+    columns:
+      - name: sex
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['M', 'F', 'Unknown']
