@@ -1,36 +1,33 @@
+# dbt_project.yml - Configuration for the employee ETL pipeline
+name: 'dbt_project'  # Project name, lowercase with underscores, reflects ETL purpose
+version: '1.0.0'      # Version for tracking changes
+config-version: 2     # dbt configuration version
 
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
-name: 'dbt_project'
-version: '1.0.0'
+profile: 'snowflake'   # Profile name for Snowflake connection, defined in profiles.yml
 
-# This setting configures which "profile" dbt uses for this project.
-profile: 'dbt_project'
+# Directory paths for dbt files
+model-paths: ["models"]           # Where models (SQL files) are stored
+analysis-paths: ["analyses"]      # For analytical queries (optional)
+test-paths: ["tests"]            # For dbt tests
+seed-paths: ["seeds"]            # For seed data (optional)
+macro-paths: ["macros"]          # For dbt macros (e.g., custom functions)
 
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
+# Output and cleanup settings
+target-path: "target"            # Directory for compiled files and logs
+clean-targets:                   # Files/directories to clean up
+  - "target"                    # Compiled output
+  - "dbt_packages"             # External dbt packages
 
-clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
-
-
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
+# Model configurations, specifying materialization and structure
 models:
-  dbt_project:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+  dbt_project:                  # Namespace matches project name
+    staging:                    # Staging models for validation
+      materialized: view        # Materialize as views for non-persistent validation
+    raw:                        # Raw models for target table creation
+      materialized: table       # Materialize as tables for persistence
+    transformed:                # Transformed models for analytics
+      materialized: table       # Materialize as tables for persistence
+
+# Hook to run ETL validation after each dbt run
+on-run-end:
+  - "{{ validate_etl_data('employee_db.employee.employees') }}"  # Custom macro for data validation
