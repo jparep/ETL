@@ -1,0 +1,9 @@
+version: 2                       # dbt sources schema version
+
+sources:
+  - name: employee              # Source namespace, matches stg_employees.sql reference
+    database: employee_db       # Snowflake database containing the source
+    schema: employee            # Snowflake schema containing the source
+    tables:
+      - name: employees         # Source table name
+        identifier: employees   # Exact table name in Snowflake
