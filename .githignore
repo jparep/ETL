@@ -1,0 +1,45 @@
+# Ignore Python bytecode files
+*.pyc
+__pycache__/
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore data files
+*.csv
+*.parquet
+*.json
+
+# Ignore log files
+*.log
+
+# Ignore configuration files
+*.yaml
+*.yml
+*.ini
+
+# Ignore AWS credentials
+.aws/
+
+# Ignore Snowflake credentials
+.snowflake/
+
+# Ignore dbt artifacts
+dbt_modules/
+target/
+logs/
+manifest.json
+run_results.json
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.bak
+
+# Ignore system files
+.DS_Store
+Thumbs.db
