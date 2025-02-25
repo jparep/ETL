@@ -2,3 +2,17 @@
 target/
 dbt_packages/
 logs/
+# Ignore compiled files, logs, and sensitive data
+target/
+logs/
+dbt_packages/
+venv/
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.json
+.env
+lambda_function.zip
+lambda_package/
