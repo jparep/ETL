@@ -25,6 +25,7 @@ The architecture of the ETL pipeline consists of the following components:
 - dbt (data build tool) for testing and validating data integrity.
 - Snowflake as the data warehouse for storing the processed data.
 
+
 ## Components
 
 ### AWS Lambda
