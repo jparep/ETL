@@ -43,18 +43,3 @@ run_results.json
 # Ignore system files
 .DS_Store
 Thumbs.db
-
-# Ignore compiled files, logs, virtual environments, and sensitive data
-target/
-logs/
-dbt_packages/
-venv/
-__pycache__
-*.pyc
-*.pyo
-*.pyd
-*.log
-*.json
-.env
-lambda_function.zip
-lambda_package/

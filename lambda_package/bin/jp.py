@@ -1,4 +1,4 @@
-#!/home/jparep/proj/ETL/etl-env/bin/python3.12
+#!/home/jparep/miniconda3/bin/python3.12
 
 import sys
 import json

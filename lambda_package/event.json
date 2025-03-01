@@ -1,0 +1,10 @@
+{
+  "Records": [
+    {
+      "s3": {
+        "bucket": {"name": "sfbucket2025"},
+        "object": {"key": "employee_20250223_120000.csv"}
+      }
+    }
+  ]
+}

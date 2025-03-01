@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/jparep/proj/ETL/lambda_package/lambda_function.py", line 5, in <module>
+    import pandas as pd
+  File "/home/jparep/proj/ETL/lambda_package/pandas/__init__.py", line 19, in <module>
+    raise ImportError(
+ImportError: Unable to import required dependencies:
+numpy: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.

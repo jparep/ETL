@@ -1,4 +1,4 @@
-#!/home/jparep/proj/ETL/etl-env/bin/python3.12
+#!/home/jparep/miniconda3/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
