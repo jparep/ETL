@@ -37,6 +37,7 @@ def upload_to_s3(data):
     return filename
 
 if __name__ == "__main__":
+    """Main script entrypoint."""
     data = generate_sample_data()
     uploaded_file = upload_to_s3(data)
     print(f"New file {uploaded_file} uploaded. Pipeline will auto-trigger via S3 event.")
