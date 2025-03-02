@@ -62,6 +62,7 @@ def transform_data(df):
     # Add load timestamp
     df['load_time'] = datetime.now()
 
+    # Log transformed data shape
     logger.info(f"Transformed data shape: {df.shape}")
     return df
 
